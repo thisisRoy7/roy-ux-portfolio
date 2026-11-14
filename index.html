@@ -3,41 +3,114 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shivendra Kumar Roy</title>
+  <title>Shivendra Kumar Roy — UI Anthology</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Lora & Newsreader: Even-weight, writerly book serifs. Plus Jakarta Sans & JetBrains Mono for crisp UI accents -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Lora:ital,wght@0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            serif: ['Playfair Display', 'Georgia', 'serif'],
-            sans: ['Inter', 'sans-serif'],
+            serif: ['Lora', 'Georgia', 'serif'],
+            editorial: ['Newsreader', 'Georgia', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            paper: {
+              DEFAULT: '#FAF8F5',
+              warm: '#F3EFEA',
+              border: '#E2DDD5',
+            },
+            ink: {
+              DEFAULT: '#141413',
+              muted: '#57534E',
+              faint: '#8C857B',
+            }
           }
         }
       }
     }
   </script>
+  <style>
+    body {
+      background-color: #FAF8F5;
+      color: #141413;
+      /* Subtle ink-on-paper dot matrix texture */
+      background-image: radial-gradient(#141413 0.55px, transparent 0.55px);
+      background-size: 24px 24px;
+      background-position: 0 0;
+    }
+    .paper-surface {
+      background-color: rgba(250, 248, 245, 0.92);
+      backdrop-filter: blur(8px);
+    }
+    .ink-shadow {
+      box-shadow: 0 10px 30px -10px rgba(20, 20, 19, 0.08), 0 4px 12px -4px rgba(20, 20, 19, 0.05);
+    }
+  </style>
 </head>
-<body class="bg-white text-black antialiased selection:bg-black selection:text-white">
+<body class="min-h-screen antialiased selection:bg-ink selection:text-paper">
 
-  <!-- Header / Intro -->
-  <header class="max-w-7xl mx-auto px-6 pt-20 pb-16 border-b border-neutral-200">
-    <h1 class="font-serif text-5xl sm:text-7xl font-black tracking-tight text-black">
-      Shivendra Kumar Roy
-    </h1>
-    <p class="mt-4 text-xl sm:text-2xl text-neutral-700 font-serif">
-      Passionate about building premium and professional looking UI.
-    </p>
+  <!-- Top Editorial Folio Bar -->
+  <div class="border-b border-paper-border paper-surface sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between text-xs font-mono text-ink-muted">
+      <div class="flex items-center gap-2.5">
+        <span class="w-2 h-2 rounded-full bg-ink"></span>
+        <span class="text-ink font-medium tracking-tight">INDEX / UI ANTHOLOGY</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <span class="hidden sm:inline">INTERACTIVE DESKTOP EDITIONS</span>
+        <a href="https://github.com/thisisRoy7" target="_blank" rel="noopener noreferrer" 
+           class="text-ink hover:underline underline-offset-4">
+          github.com/thisisRoy7 ↗
+        </a>
+      </div>
+    </div>
+  </div>
 
-    <!-- Jump Buttons (Auto-generated from PROJECTS array) -->
-    <div id="jump-nav" class="mt-10 flex flex-wrap gap-3"></div>
+  <!-- Masthead / Writerly Intro -->
+  <header class="max-w-7xl mx-auto px-6 pt-16 pb-14">
+    <div class="bg-paper-warm/70 border border-paper-border rounded-3xl p-8 sm:p-12 ink-shadow">
+      <p class="font-mono text-xs uppercase tracking-widest text-ink-faint mb-4">
+        Interactive Portfolio &bull; Selected Works
+      </p>
+      
+      <h1 class="font-serif text-4xl sm:text-6xl font-bold tracking-tight text-ink leading-[1.15]">
+        Shivendra Kumar Roy
+      </h1>
+      
+      <p class="mt-4 font-editorial text-xl sm:text-2xl text-ink-muted max-w-2xl leading-relaxed">
+        Passionate about building <span class="italic text-ink font-medium">premium and professional looking UI</span>—where clarity, tactile typography, and purposeful layout turn complex tools into effortless experiences.
+      </p>
+
+      <!-- Divider with Ink Ornament -->
+      <div class="my-8 flex items-center gap-4">
+        <div class="h-px bg-paper-border flex-1"></div>
+        <span class="font-serif italic text-sm text-ink-faint">Jump to Chapter</span>
+        <div class="h-px bg-paper-border flex-1"></div>
+      </div>
+
+      <!-- Rounded Jump Pills (Auto-generated from PROJECTS array) -->
+      <div id="jump-nav" class="flex flex-wrap items-center gap-3"></div>
+    </div>
   </header>
 
   <!-- Projects List -->
-  <main id="projects-root" class="max-w-7xl mx-auto px-6 py-16 space-y-24"></main>
+  <main id="projects-root" class="max-w-7xl mx-auto px-6 pb-24 space-y-24"></main>
+
+  <!-- Minimal Colophon Footer -->
+  <footer class="border-t border-paper-border bg-paper-warm/50">
+    <div class="max-w-7xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-ink-muted">
+      <p>Set in Lora &amp; Newsreader &bull; Crafted by Shivendra Kumar Roy</p>
+      <a href="#" class="px-4 py-2 rounded-full border border-paper-border bg-paper hover:border-ink text-ink transition-colors">
+        Return to Top ↑
+      </a>
+    </div>
+  </footer>
 
   <!-- ===================================================================== -->
   <!-- PROJECTS DATA                                                         -->
@@ -47,67 +120,154 @@
     const PROJECTS = [
       {
         id: "price-scraper",
-        name: "Price Scraper",
+        name: "MarketWatch — Price Scraper",
+        subtitle: "Cross-Platform E-Commerce Comparison Interface",
         liveUrl: "https://price-scraper-lake.vercel.app/",
-        repoUrl: "https://github.com/thisisRoy7/price-scraper"
+        repoUrl: "https://github.com/thisisRoy7/price-scraper",
+        description: "A unified product search and comparison workspace that aggregates real-time listings across Amazon and Flipkart. Designed to strip away marketplace clutter so users can evaluate pricing, ratings, and product specifications side by side in a single view.",
+        designNotes: "Focused search bar hierarchy, scannable dual-vendor comparison cards, and distraction-free visual contrast.",
+        tags: ["Search UX", "Tailwind CSS", "Comparison Layout"]
       },
       {
         id: "plant-disease",
-        name: "Plant Disease Detection",
+        name: "The Botanist — Plant Disease Diagnostics",
+        subtitle: "Clinical Botanical Inspection & AI Analysis Dashboard",
         liveUrl: "https://plant-disease-detection-beta-nine.vercel.app/",
-        repoUrl: "https://github.com/thisisRoy7/Plant-Disease-Detection"
+        repoUrl: "https://github.com/thisisRoy7/Plant-Disease-Detection",
+        description: "An editorial-grade diagnostic interface for inspecting leaf specimens across 38 plant disease classifications. Transforms raw machine learning predictions into a calm, structured botanical report complete with scan history, critical alerts, and actionable care insights.",
+        designNotes: "Bespoke multi-tab dashboard, collapsible inspection sidebars, and buffered scan state animations.",
+        tags: ["Dashboard UI", "Editorial Botanical Theme", "Interactive States"]
       }
-      // To add a new project later, copy-paste a block like this:
-      // ,{
-      //   id: "new-project",
-      //   name: "Project Name",
-      //   liveUrl: "https://your-link.vercel.app/",
-      //   repoUrl: "https://github.com/thisisRoy7/your-repo"
-      // }
+      // -------------------------------------------------------------------
+      // HOW TO ADD MORE PROJECTS LATER:
+      // Copy-paste the object below and fill in the details!
+      // -------------------------------------------------------------------
+      /*
+      ,{
+        id: "new-project",
+        name: "Project Title",
+        subtitle: "Short One-Line Category",
+        liveUrl: "https://your-link.vercel.app/",
+        repoUrl: "https://github.com/thisisRoy7/your-repo",
+        description: "2-3 sentences explaining what the project does and why the interface is designed the way it is.",
+        designNotes: "Key layout, typography, or interaction highlights.",
+        tags: ["Tag 1", "Tag 2", "Tag 3"]
+      }
+      */
     ];
 
     function renderPortfolio() {
       const jumpNav = document.getElementById("jump-nav");
       const root = document.getElementById("projects-root");
 
-      // Render Jump Buttons
+      // Render Rounded Jump Buttons
       jumpNav.innerHTML = PROJECTS.map((p, i) => `
         <a href="#${p.id}" 
-           class="px-5 py-2.5 border-2 border-black text-black font-sans font-semibold text-sm hover:bg-black hover:text-white transition-colors">
-          0${i + 1}. ${p.name} ↓
+           class="group inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-paper border border-ink/20 text-ink font-sans text-sm font-medium hover:bg-ink hover:text-paper hover:border-ink transition-all shadow-sm">
+          <span class="font-mono text-xs text-ink-faint group-hover:text-paper/70">0${i + 1}</span>
+          <span>${p.name}</span>
+          <span class="text-ink-faint group-hover:text-paper transition-transform group-hover:translate-y-0.5">↓</span>
         </a>
       `).join("");
 
-      // Render Project Windows (Desktop-only)
+      // Render Project Sections
       root.innerHTML = PROJECTS.map((p, i) => `
-        <section id="${p.id}" class="scroll-mt-10 space-y-4">
-          <div class="flex flex-wrap items-baseline justify-between gap-4">
-            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-black">
-              0${i + 1}. ${p.name}
-            </h2>
-            <div class="flex items-center gap-4 font-sans text-sm font-medium">
+        <section id="${p.id}" class="scroll-mt-20 space-y-5">
+          
+          <!-- Project Header Bar -->
+          <div class="flex flex-wrap items-end justify-between gap-4 px-1">
+            <div>
+              <div class="flex items-center gap-2.5 font-mono text-xs text-ink-faint mb-1">
+                <span>PLATE 0${i + 1}</span>
+                <span>&bull;</span>
+                <span>${p.subtitle}</span>
+              </div>
+              <h2 class="font-serif text-2xl sm:text-4xl font-bold text-ink tracking-tight">
+                ${p.name}
+              </h2>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex items-center gap-2.5 font-sans text-xs font-medium">
+              <button onclick="reloadFrame('${p.id}')" 
+                      class="px-3.5 py-2 rounded-full border border-paper-border bg-paper hover:border-ink text-ink-muted hover:text-ink transition-colors">
+                ↻ Reset View
+              </button>
               <a href="${p.repoUrl}" target="_blank" rel="noopener noreferrer" 
-                 class="text-neutral-600 hover:text-black underline underline-offset-4">
-                GitHub
+                 class="px-4 py-2 rounded-full border border-paper-border bg-paper hover:border-ink text-ink transition-colors">
+                Source Code
               </a>
               <a href="${p.liveUrl}" target="_blank" rel="noopener noreferrer" 
-                 class="px-4 py-1.5 bg-black text-white hover:bg-neutral-800 transition-colors">
+                 class="px-4 py-2 rounded-full bg-ink text-paper hover:bg-ink/85 transition-colors">
                 Open Fullscreen ↗
               </a>
             </div>
           </div>
 
-          <!-- Desktop Frame -->
-          <div class="border-2 border-black bg-neutral-50 overflow-hidden shadow-sm">
+          <!-- Rounded Live Desktop Window -->
+          <div class="rounded-2xl border border-ink/15 bg-white overflow-hidden ink-shadow">
+            <!-- Subtle Window Top Strip -->
+            <div class="bg-paper-warm border-b border-paper-border px-4 py-2.5 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-ink/20"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-ink/20"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-ink/20"></span>
+              </div>
+              <div class="font-mono text-[11px] text-ink-muted bg-paper px-3 py-0.5 rounded-full border border-paper-border truncate max-w-md">
+                ${p.liveUrl}
+              </div>
+              <div class="font-mono text-[11px] text-ink-faint hidden sm:block">
+                LIVE INTERACTIVE
+              </div>
+            </div>
+
+            <!-- Iframe Desktop Stage -->
             <iframe 
+              id="iframe-${p.id}"
               src="${p.liveUrl}" 
               title="${p.name}"
-              class="w-full h-[760px] bg-white border-0"
+              class="w-full h-[740px] bg-white border-0"
               loading="lazy">
             </iframe>
           </div>
+
+          <!-- Below-Window Editorial Footnote & Description Card -->
+          <div class="bg-paper-warm/80 border border-paper-border rounded-2xl p-6 sm:p-8 grid md:grid-cols-12 gap-6 items-start">
+            <div class="md:col-span-7 space-y-2">
+              <h3 class="font-mono text-xs uppercase tracking-wider text-ink-faint">
+                About the Project
+              </h3>
+              <p class="font-editorial text-lg text-ink leading-relaxed">
+                ${p.description}
+              </p>
+            </div>
+
+            <div class="md:col-span-5 md:border-l border-paper-border md:pl-6 space-y-3">
+              <div>
+                <h4 class="font-mono text-xs uppercase tracking-wider text-ink-faint">
+                  Interface Notes
+                </h4>
+                <p class="font-sans text-sm text-ink-muted mt-1 leading-relaxed">
+                  ${p.designNotes}
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                ${p.tags.map(tag => `
+                  <span class="font-mono text-[11px] px-2.5 py-1 rounded-full bg-paper border border-paper-border text-ink-muted">
+                    ${tag}
+                  </span>
+                `).join("")}
+              </div>
+            </div>
+          </div>
+
         </section>
       `).join("");
+    }
+
+    function reloadFrame(id) {
+      const iframe = document.getElementById(`iframe-${id}`);
+      if (iframe) iframe.src = iframe.src;
     }
 
     renderPortfolio();
